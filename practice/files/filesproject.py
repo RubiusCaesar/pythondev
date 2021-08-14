@@ -1,9 +1,14 @@
 import csv
 import json
+import os
+cwd = os.getcwd()
+files = os.listdir(cwd)
+print("Files in %r: %s" % (cwd, files))
+
 
 compromised_users = []
 
-with open('passwords.csv') as password_file:
+with open('pythondev/practice/files/passwords.csv') as password_file:
     parsed_csv = csv.DictReader(password_file)
     for password_row in parsed_csv:
         compromised_users.append((password_row['Username']))
